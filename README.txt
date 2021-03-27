@@ -1,1 +1,1 @@
-Dispnible en ligne sur https://the-memory-game.herokuapp.com/
+Disponible en ligne sur https://the-memory-game.herokuapp.com/
