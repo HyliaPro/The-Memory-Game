@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>                                                                                             <!-- Encodage en utf8 pour avoir les accents -->
+		<link rel="stylesheet" href="style2.css"></link>                                                                    <!-- On lie le fichier html au fichier css -->
+		<link rel="icon" href="Images/logo_noir.png"></link>																<!-- On change l'icone de la fenêtre -->
+		<title>The Memory Game</title>                                                                                      <!-- On met "The Memory Game" en titre de la fenètre -->
+	</head>
+	
+	<body>
+		<h1 id="titre">The Memory Game</h1>                                                                                 <!-- logo du site (qui reste sur toutes les pages) -->
+			
+			<div id="accueil" class="show">																					<!--  Page de l'accueil-->
+				<img id="regles_icone" alt="Icone règles" title="Règles du jeu" onclick="afficher_regles()" src="Images/book.ico"/> <!-- Icone des règles, si on clique, ça execute la fonction afficher_regles() -->
+				<form id="formulaire_difficulte">																			<!-- Formulaire du choix de difficulte -->
+					<div class="button_menu">
+						
+						<button type="button" id="start_button" onclick="obtenir_difficulte()">Jouer</button>				<!-- Bouton qui cache la page d'accuueil et affiche le choix du nombre de joueur -->
+						
+						<select id="select_difficulte" required>															<!-- Select avec les difficultés en liste d'option  -->
+							<option value="" disabled>Difficulté :</option>													<!-- On met disabled car c'est le texte du select -->
+							<option id="ultra_easy" class="hidden">Très Facile</option>										 <!-- La difficulté "Très Facile" n'est pas disponible, c'est un easter egg -->
+							<option >Enfant</option>																		
+							<option selected>Facile</option>																<!-- L'option "facile" est selectionnée de base -->
+							<option>Moyen</option>
+							<option>Difficile</option>
+						</select>
+					</div>
+				</form>
+			</div>
+			
+			<div id="choix_enfant" class="hidden">																			<!-- Page du choix de la difficulté après avoir selectionné la difficulté "enfant" -->
+				<h2 id="text_enfant">Ce niveau permettra a votre enfant d'apprendre les animaux tout en s'amusant :)</h2>	<!-- texte qui est au dessus des images -->
+				<img class="image_enfant_choix" src="Images/ferme.jpg" onclick="afficher_choix_nombre_de_joueurs('Ferme')">	<!-- Image pour choisir "animaux de la ferme", lorsqu'on clique, cela exécute la fonction afficher_choix_nombre_de_joueurs avec "Ferme" en input -->
+				<img class="image_enfant_choix" src="Images/sauvage.jpg" onclick="afficher_choix_nombre_de_joueurs('Sauvage')"> <!-- Image pour choisir "animaux sauvages", lorsqu'on clique, cela exécute la fonction afficher_choix_nombre_de_joueurs avec "Sauvage" en input -->
+			</div>
+
+			<div id="choix_nombre_de_joueurs" class="hidden">                                                               <!-- Page de la selection du nombre de joueurs avec 4 images -->
+				<h3 class="captions">Nombre de  joueurs :</h3>                                                              <!-- texte de la page -->
+				<div id="choix_players">                                                                                    <!-- div contenant les 4 images de choix possibles -->
+				<img class="player_selection" src="Images/1.png" draggable="false" onclick="afficher_input_prenoms(1)"/>    <!-- si on clique sur l'image 2, on execute la fonction avec 1 en input  -->
+				<img class="player_selection" src="Images/2.png" draggable="false" onclick="afficher_input_prenoms(2)"/>    <!-- si on clique sur l'image 2, on execute la fonction avec 2 en input  -->
+				<br>                                                                                                        <!-- Pour que les cartes soit en forme de carré 2 par 2 -->
+				<img class="player_selection" src="Images/3.png" draggable="false" onclick="afficher_input_prenoms(3)"/>    <!-- si on clique sur l'image 3, on execute la fonction avec 3 en input  -->
+				<img class="player_selection" src="Images/4.png" draggable="false" onclick="afficher_input_prenoms(4)"/>    <!-- si on clique sur l'image 4, on execute la fonction avec 4 en input  -->
+				</div>  
+			</div>
+				
+
+			<div id="lesprenoms" class="hidden">																			<!-- Page des input pour rentrer le prénom des joueurs  -->
+				<h3 id="titre_modulable" class="captions">Prénoms des  joueurs :</h3>                                       <!-- Ce titre est modulable car si l'utilisateur a choisit 1 joueur, on aura "Prénom du joueur" -->
+				
+				<div id="choix_players">                                                                                    <!--  Div des inputs pour rentrer le prénom des joueurs en texte -->
+					<form id="formulaire_joueurs" autocomplete="off">
+						<input type="text" id="Joueur1Input" maxlength="10" placeholder="Joueur 1" spellcheck="false">      <!-- le spellcheck="false" permet d'enlever le correcteur automatique -->
+						<input type="text" id="Joueur2Input" maxlength="10" placeholder="Joueur 2" spellcheck="false">      <!-- le spellcheck="false" permet d'enlever le correcteur automatique -->
+						<input type="text" id="Joueur3Input" maxlength="10" placeholder="Joueur 3" spellcheck="false">      <!-- le spellcheck="false" permet d'enlever le correcteur automatique -->
+						<input type="text" id="Joueur4Input" maxlength="10" placeholder="Joueur 4" spellcheck="false">      <!-- le spellcheck="false" permet d'enlever le correcteur automatique -->
+						<div class="div_bouton_cestpartit">
+							<button type="button" id="bouton_cest_partit" onclick="go()" >C'est parti</button>				<!-- Bouton qui exécute la fonction go() une fois que les prénoms sont rentrés, si des cases sont vides elle seront remplacé par Joueur 1, Joueur 2 etc -->
+						</div>
+					</form >
+				</div>
+			</div>
+				
+
+			<div id="regles" class="hidden">																				<!-- Page des règles du jeu-->
+				<img id="regles_icone" alt="Icone retour" title="Accueil" onclick="revenir_accueil()" src="Images/back.ico"/>	<!-- Image cliquable pour revenir à l'accueil -->
+				
+				
+				
+				<div id="regles_texte">																						<!-- Règles du jeu -->
+					<h1>Règles du Memory :</h1>
+					<p>
+					En solo :
+					<br>	<!-- On saute un espace -->
+					Le chronomètre se lance lorsque la partie commence. Toutes les cartes sont étalées faces cachées. Le joueur retourne deux cartes. Si c'est la même image qui apparaît sur les deux cartes, le joueur gagne les cartes <span id="easteregg" onclick="easteregg()">et</span> en retourne à nouveau deux. Si les deux cartes ne vont pas ensemble le joueur les replace face cachée à l'endroit exact où elles étaient. La partie se finie lorsque toutes les cartes ont été retournés. A la fin de la partie, le joueur se place dans le classement en fonction de son temps.
+					<br><br> <!-- On saute deux espaces -->
+					En multijoueurs :
+					<br>	<!-- On saute un espace -->
+					Toutes les cartes sont étalées faces cachées. Un premier joueur retourne deux cartes. Si c'est la même image qui apparaît sur les deux cartes, le joueur gagne les cartes et en retourne à nouveau deux. Si les deux cartes ne vont pas ensemble, le joueur les replace face cachée à l'endroit exact où elles étaient, et c'est au joueur suivant de retourner deux cartes. Celui qui a une bonne mémoire se souviendra de l'emplacement des cartes déjà retournées et pourra les utiliser lorsqu'il en aura besoin pour compléter une paire. La partie se finit lorsque toutes les cartes ont été trouvés. Le gagnant est celui qui accumule le plus de paires. 
+					</p>
+				</div>
+			</div>
+				
+				
+			<div id="jeu" class="hidden">																					<!-- Page du plateau de jeu avec les cartes -->
+				<div id="leaderboard_team">																					<!-- Le leaderboard de la partie en cours, il affiche les joueurs et leur points ainsi que le chronomètre -->
+					<p><span id="score_j1">Joueur 1 : 0</span><span id="score_j2">Joueur 2 : 0</span><span id="score_j3">Joueur 3 : 0</span><span id="score_j4">Joueur 4 : 0</span><span>| </span><span id="chronotime">0 seconde.</span>
+					</p>
+					</div>
+					<div id="game">
+				</div>
+				<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+			</div>
+
+
+			<div id="haswin" class="hidden"> <!-- Page de fin qui affiche le gagnant et le score qu'il a fait -->
+				<img class="winner_gif" src="Images/coupe.gif"/>
+				<h3 class="wintext">Bien  joué <span id="joueurgagnant">Mathieu</span>, tu as gagné <span id="scorejoueurgagnant">en 30 secondes</span><BR><a id="rejouer_button" onclick="reset()"> Rejouer </a></h3>                                           <!-- Ce titre est modulable car si l'utilisateur a choisit 1 joueur, on aura "Prénom du joueur" -->
+			</div>
+				
+		<script src="scriptmathieu.js"></script><!-- Script qui fait fonctionner la base du site -->
+		<script src="jeux.js"></script>			<!-- Script du plateau de jeu -->
+		<script src="chronometre.js"></script>	<!-- Script du chronomètre -->
+		<script src="confetti.js"></script>	<!-- Script des confetti -->
+	</body>	
+</html> 				

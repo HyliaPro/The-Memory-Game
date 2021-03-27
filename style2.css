@@ -1,0 +1,322 @@
+﻿@font-face {                                                    /* On importe la police que l'on a choisit pour le titre (le logo en haut de toutes les pages) */
+    font-family: "titre";
+    src: url("font/titre.ttf");
+   }
+
+@font-face {                                                    /* On importe la police que l'on a choisit pour le texte */
+    font-family: "texte";
+    src: url("font/texte.ttf");
+   }
+
+a, a:visited{ /* Enleve les décoration des liens */
+    text-decoration: none;
+
+}
+html{
+    background-image:url('Images/brackground3.png');                   /* On change l'arrière plan de la page avec une photo que l'on importe */
+    background-position: fill;                                  /* On adapte l'image à la taille de la fenètre */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;                               /* On fais en sorte que même en dé-zoomant, l'image reste fixée */
+}
+
+#titre {
+    text-align: center;
+    font-family: titre;                                         /* On met la police que l'on a importé plus haut */
+    pointer-events: none;
+    font-size: 100px;
+    opacity: 0.5;                                               /* On met l'opacité à la moitié pour creer cet effet de transparence*/
+    letter-spacing: 1rem;                                       /* On choisit l'écart entre les lettre pour qu'elles ne soient pas collées*/
+    color: #bbe4e5;                                           /* On choisit la couleur du texte*/
+    text-shadow: 1px 1px 2px black, 0 0 25px #79656d, 0 0 5px #5b4757;
+}
+
+#start_button {
+    margin: auto;
+    font-size: 100px;
+    border: none;                                               /* On enlève la bordure */
+    color: #363d41;                                           /* On change la couleur du texte */
+    padding: 15px 32px;
+    background-color: Transparent;
+    font-family: texte;                                         /* On met la police que l'on a importé plus haut */                           
+    text-align: center;
+    text-decoration: none;                                      /* On enleve les décorations quelconques */
+    display: inline-block;
+    font-size: 5rem;                                            /* On change la taille de la police */
+    outline:none;                                               /* On enleve les contours */
+    cursor: pointer;                                            /*  On met le curseur de la souris en forme de main pour montrer que c'est bien un bouton*/
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 35px #101416, 0 0 5px #2c5c47;     /*  On ajoute un effet d'ombre au boutton*/
+}
+
+#start_button:hover{                                                                          /*  Au survol de la souris sur le bouton */
+    color: #1e2225;                                                                         /* On intensifie la couleur au survol de la souris */
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 45px #101416, 0 0 5px #2c5c47;     /* On intensifie l'effet d'ombre au suvol de la souris*/
+}
+
+.button_menu { /* Menu du choix de la difficulté */
+    margin: auto; 
+    width: 300px; /* On donne une largeur de 300px */
+    height: 300px; /* On donne une longeur de 300px */
+    display: grid;
+    margin-top: 10vw;
+    }
+
+#select_difficulte { /* Select de difficulté */
+    color: #000000; /* On met la couleur du texte en noir */
+    background-color: transparent; /* On met le fond du select en transparent*/
+    border: none; /* on enleve la bordure */
+    cursor: pointer; /* On change le curseur en "pointer" */
+    text-decoration: none; /* On enlèves les décorations du texte*/
+    font-family: texte; /* On change la police du texte */
+    text-align: center; /* On aligne le texte */
+    font-size: 2rem; /* On change la taile du texte */
+    outline: transparent; /* On enlève la bordure des options */
+}
+
+#regles_icone { /* Icone des règles */
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
+}
+
+
+#regles_texte { /* texte des règles */
+    font-size: 19px;
+    font-family: texte; /* on change la police */
+    display: grid;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+
+.player_selection { /* Images du choix du nombre de joueurs */
+    width: 15rem;
+    height: 15rem; 
+    margin-right: 3rem;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    align-items: center; 
+    
+}
+
+#choix_players { /* Div des images du nombre de joueurs */
+    margin-top: 3rem;
+    text-decoration: none;
+    position: absolute; 
+    left: 50%;
+    transform: translate(-50%, -10%); /* On centre la div au milieu de l'écran */
+}
+
+.player_selection:hover { /* Au survol des images */
+    opacity: 70%; /* On baisse l'opacité */
+    cursor: pointer; /* On change le curseur */
+    box-shadow: 10px 5px 5px #363d41; /* On met une ombre aux images */
+}
+.wintext { /* Texte de la fin de la partie */
+  border-radius: 15px; /* On arrondie la bordure de la div  */
+  background-color: rgba(0, 0, 0, 0.2); /* On change le fond en un fond noir mais très transparent */
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -10%); /* On aligne le texte */
+  text-align: center;
+  font-family: texte;
+  font-size: 4rem; /* On lui met une taille responsive */
+  cursor:pointer; /* On change le curseur */
+}
+.captions { /* Titre explicatif des pages */
+  text-align: center;
+  font-family: texte;
+  font-size: 3rem;
+}
+
+#choix_players input { /* Input des noms des joueurs */
+    outline: none; /* On enlève les bordures des input*/
+    margin-bottom: 15px;
+    font-family: texte;
+    font-size: 2rem;
+    color: #363d41; /* On met la couleur grise */
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #363d41; /* On met une bordure grise solide de 2 pixels aux options */
+    border-radius: 5px;
+
+}
+
+#choix_players input:hover { /* Au survol des inputs */
+  box-shadow: 3px 3px 2px #363d41; /* met un effet d'ombre de portée grise */
+}
+
+.hidden {                       /* On cache les élément ayant la class "hidden" */
+    display: none !important;   /* On met !important pour que ça se fasse au dessus des autres inscriptions */
+}
+
+.div_bouton_cestpartit {
+    display: grid;
+    text-align: center;
+}
+
+#bouton_cest_partit { /* Bouton qui lance le jeu */
+    margin: auto;
+    border: 2px solid #363d41;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: texte;
+    font-size: 2rem;
+    border-radius: 5px;
+}
+
+#bouton_cest_partit:hover { /* Survol du bouton qui lance le jeu */
+    cursor: pointer;
+}
+
+
+/* JEU */ 
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.trouve {
+  transform: rotateY(180deg);
+}
+body {
+  margin: 20px 0;
+}
+
+.grid {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.carte, .trouve {
+  position: relative;
+  z-index: 2;
+  background: url('Images/dos.png') no-repeat center center / contain;
+  height: 200px;
+  width: 135px;
+  transition: all .4s linear;
+  transform-style: preserve-3d;
+  margin: 5px;
+}
+
+.carte {
+  cursor: pointer;
+}
+/* JEU */
+
+#titre { /* Titre "The Memory Game" */
+  text-align: center;
+  font-family: titre;
+  font-size: 100px;
+  opacity: 0.5;
+  letter-spacing: 1rem;
+  color: #bbe4e5;
+  text-shadow: 1px 1px 2px black, 0 0 25px #79656d, 0 0 5px #5b4757;
+}
+.image_enfant_choix { /* Image du choix de la catégorie pour enfants */
+  width: 20rem;
+  height: 20rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  margin-top: 3rem;
+  align-items: center;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+
+.image_enfant_choix:hover { /* Survol du choix de la catégorie pour enfants */
+  box-shadow: 10px 5px 5px #363d41;
+  opacity: 1;
+  cursor: pointer;
+}
+#text_enfant { 
+  text-align: center;
+  font-family: texte;
+}
+#choix_enfant {
+  margin-top: 3rem;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -10%);
+}
+
+.carte,
+.dos,
+.face { /* Toutes les cartes */
+  height: 200px;
+  width: 135px;
+}
+
+.dos,
+.face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+
+
+.dos { /* Dos des cartes */
+  transform: rotateY(180deg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.selected { /* Carte selectionnée */
+  transform: rotateY(180deg); /* On la retourne */
+}
+
+#leaderboard_team p{ /*  Leaderboard */
+  text-align: center;
+  pointer-events: none;
+}
+#leaderboard_team p span{ /* Elements du leaderboard */
+  text-align: center;
+  margin-right: 40px;
+  font-family: texte;
+  font-size: 2rem;
+}
+
+.winner_gif { /* Gif de la coupe */
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -27%); /* On centre l'image */
+}
+
+.bold { /* Class du joueur pour qui c'est à son tour de jouer */
+  text-decoration: underline; /* On souligne son prénom */
+}
+
+#easteregg { /* Easter egg */
+  cursor: pointer; /* On change le curseur */
+}
+
+#joueurgagnant, #scorejoueurgagnant { /* Variables du nom du gagnant et son score */
+  color: #2498e6; /* texte en bleu */
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 45px #101416, 0 0 5px #2c5c47; /* Ombre porté du texte qui donne un effet */
+}
+
+#rejouer_button { /* Bouton pour rejouer */
+  opacity: 0.7; /* On baisse l'opacité */
+  color: #000000;
+  border-radius: 15px; /* On affine les bordures  */
+  background-color: rgba(0, 0, 0, 0.4); /* On met le fond noir mais très transparent */
+  cursor:grab; /* On change le curseur en "grab" */
+  color: #2498e6; /* On met le texte en bleu */
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 45px #101416, 0 0 5px #2c5c47; /* Ombre du texte */
+}
+
+#rejouer_button:hover { /* Au survol du bouton rejouer */
+  opacity: 1; /* On augmente l'opacité */
+}
