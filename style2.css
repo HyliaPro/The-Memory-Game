@@ -183,8 +183,8 @@ html{
 *::after {
   box-sizing: border-box;
 }
-.trouve {
-  transform: rotateY(180deg);
+.trouve { /* Les cartes trouvés */
+  transform: rotateY(180deg);  /* On les retourne */
 }
 body {
   margin: 20px 0;
@@ -239,11 +239,11 @@ body {
   opacity: 1;
   cursor: pointer;
 }
-#text_enfant { 
+#text_enfant {  /* texte du choix de la catégorie enfant */
   text-align: center;
   font-family: texte;
 }
-#choix_enfant {
+#choix_enfant { /* Div des images de la catégorie enfant */
   margin-top: 3rem;
   text-decoration: none;
   position: absolute;

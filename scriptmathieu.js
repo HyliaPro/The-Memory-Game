@@ -337,55 +337,55 @@ const array_ferme = [   // création de l'array avec toutes les cartes de la dif
 function obtenir_difficulte() {	// fonction exécutée après avoir selectionné la difficulté  et cliqué sur "jouer"
 	var formulaire_difficulte = document.getElementById("select_difficulte");		
 	var diff = formulaire_difficulte.options[formulaire_difficulte.selectedIndex].text; // On récupère la difficulté choisie par le joueur
-	difficulte = diff
-	document.getElementById("accueil").setAttribute("class", "hidden") // On cache la page d'accueil
+	difficulte = diff;
+	document.getElementById("accueil").setAttribute("class", "hidden"); // On cache la page d'accueil
 
 	if (difficulte==="Enfant") { // Si la difficulté choisie est "enfant", on affiche la page du choix des deux catégories pour enfant : animaux de la ferme ou sauvages
-		document.getElementById("choix_enfant").setAttribute("class", "show")
+		document.getElementById("choix_enfant").setAttribute("class", "show");
 	} else { // Si la difficulté choisie n'est pas "enfant", on affiche la page pour choisir le nombre de joueurs
-		document.getElementById("choix_nombre_de_joueurs").setAttribute("class", "show")
+		document.getElementById("choix_nombre_de_joueurs").setAttribute("class", "show");
 	} 
 	return difficulte // on return la difficulté car on va l'utiliser après
 }
 
 function afficher_choix_nombre_de_joueurs(categorie_enfant) { // Fonction qui permet, après avoir cliqué sur une catégorie pour enfant, de mettre la difficulté en "Sauvage" Ou "Ferme" en fonction de l'image cliqué
 	difficulte = categorie_enfant
-	document.getElementById("choix_enfant").setAttribute("class", "hidden") // On cache la page du choix de la catégorie
-	document.getElementById("choix_nombre_de_joueurs").setAttribute("class", "show") // On affiche la page du choix du nombre de joueurs
+	document.getElementById("choix_enfant").setAttribute("class", "hidden"); // On cache la page du choix de la catégorie
+	document.getElementById("choix_nombre_de_joueurs").setAttribute("class", "show"); // On affiche la page du choix du nombre de joueurs
 	return difficulte // on return la difficulté car on va l'utiliser après
 }
 
 function afficher_regles() { // fonction qui affiche les règles après avoir cliqué sur l'icone des règles
-	document.getElementById("accueil").setAttribute("class", "hidden") // on cache l'accueil
-	document.getElementById("regles").setAttribute("class", "show") // on affiche la page des règles
+	document.getElementById("accueil").setAttribute("class", "hidden"); // on cache l'accueil
+	document.getElementById("regles").setAttribute("class", "show"); // on affiche la page des règles
 }
 
 function revenir_accueil() { // fonction qui revient à l'accueil après avoir cliqué sur l'image retour de la page des règles
-	document.getElementById("regles").setAttribute("class", "hidden") // on cache la page des règlesa
-	document.getElementById("accueil").setAttribute("class", "show") // on affiche l'accueil
+	document.getElementById("regles").setAttribute("class", "hidden"); // on cache la page des règlesa
+	document.getElementById("accueil").setAttribute("class", "show"); // on affiche l'accueil
 }
 
 
 function afficher_input_prenoms(nombre_de_joueurs) {                                    // Fonction exécutée lorsque l'on clique sur une des 4 images du nombre de joueurs avec le nombre en input
-	document.getElementById("choix_nombre_de_joueurs").setAttribute("class", "hidden")                  // On cache maintenant la div "choix_nombre_de_joueurs" qui contient les images pour choisir le nombre de joueurs
-	document.getElementById("lesprenoms").setAttribute("class", "show")                 // On fais maintenant apparaitre les inputs de texte des prénoms des joueurs
-	bouton_cest_partit = document.getElementById("bouton_cest_partit")
+	document.getElementById("choix_nombre_de_joueurs").setAttribute("class", "hidden");                  // On cache maintenant la div "choix_nombre_de_joueurs" qui contient les images pour choisir le nombre de joueurs
+	document.getElementById("lesprenoms").setAttribute("class", "show");                // On fais maintenant apparaitre les inputs de texte des prénoms des joueurs
+	bouton_cest_partit = document.getElementById("bouton_cest_partit");
 
 	// Les "if" ont pour but d'ajuster le nombre d'inputs texte des prénoms en fonction du nombre de joueurs
 	if (nombre_de_joueurs < 4) {                                                        // Si on a choisit 3 joueurs,
-	document.getElementById("Joueur4Input").setAttribute("class", "hidden")         // On enleve l'input texte du prénom du 4 ème joueur
-	document.getElementById("score_j4").setAttribute("class", "hidden")
+	document.getElementById("Joueur4Input").setAttribute("class", "hidden");         // On enleve l'input texte du prénom du 4 ème joueur
+	document.getElementById("score_j4").setAttribute("class", "hidden");
 	}
 	if (nombre_de_joueurs < 3) {                                                        // Si on a choisit 2 joueurs,
-	document.getElementById("Joueur3Input").setAttribute("class", "hidden")         // On enleve l'input texte du prénom du 3 ème joueur
-	document.getElementById("score_j3").setAttribute("class", "hidden")
+	document.getElementById("Joueur3Input").setAttribute("class", "hidden");         // On enleve l'input texte du prénom du 3 ème joueur
+	document.getElementById("score_j3").setAttribute("class", "hidden");
 	}
 	if (nombre_de_joueurs < 2) {                                                        // Si on a choisit 1 joueur,
-	document.getElementById("Joueur2Input").setAttribute("class", "hidden")         // On enleve l'input texte du prénom du 2 ème joueur 
+	document.getElementById("Joueur2Input").setAttribute("class", "hidden");         // On enleve l'input texte du prénom du 2 ème joueur 
 	document.getElementById("titre_modulable").innerHTML = "Prénom du  joueur :";   // On change le titre "Prénom des joueurs" en "Prénom du joueur" car il n'y a qu'un joueur
-	document.getElementById("score_j2").setAttribute("class", "hidden")
+	document.getElementById("score_j2").setAttribute("class", "hidden");
 	}
-	nbjoueurs = nombre_de_joueurs
+	nbjoueurs = nombre_de_joueurs;
 
 	return nbjoueurs;
 
@@ -417,9 +417,9 @@ function go() { // fonction exécuté après avoir rentré les prénoms, qui ré
 
 	const joueursarray = joueursarray_original.map(joueursarray_original => { //easter egg qui change les prénoms "Sylvie" et "Nicolas"
 		if (joueursarray_original.toLowerCase() === "sylvie") { // si le prénom en minuscule est égal à "sylvie" (on met en minuscule le prénom pour ne pas prendre en compte les majuscules)
-			return "Meilleure prof de NSI" // On change le prénom en "Meilleure prof de NSI"
+			return "Meilleure prof de NSI"; // On change le prénom en "Meilleure prof de NSI"
 		} else if (joueursarray_original.toLowerCase() === "nicolas") { // si le prénom en minuscule est égal à "nicolas" (on met en minuscule le prénom pour ne pas prendre en compte les majuscules)
-			return "Meilleur prof de NSI"  // On change le prénom en "Meilleur prof de NSI"
+			return "Meilleur prof de NSI";  // On change le prénom en "Meilleur prof de NSI"
 		} else { // si le prénom n'est ni "sylvie" ni "nicolas"
 			return joueursarray_original; // return  le prénom original
 		}
@@ -436,22 +436,22 @@ function go() { // fonction exécuté après avoir rentré les prénoms, qui ré
 
 
 	if (difficulte == "Facile"){ // Si la difficulté séléctionnée est "Facile" : 
-		jeu(array_easy,joueursarray,nbjoueurs) // On execute la fonction jeu avec en input : l'array de la difficulté "Facile", les prénoms des joueurs et le nombre de joueurs
+		jeu(array_easy,joueursarray,nbjoueurs); // On execute la fonction jeu avec en input : l'array de la difficulté "Facile", les prénoms des joueurs et le nombre de joueurs
 	}
 	else if (difficulte == "Moyen"){ // Si la difficulté séléctionnée est "Moyen" :
-		jeu(array_medium,joueursarray,nbjoueurs) // On execute la fonction jeu avec en input : l'array de la difficulté "Moyen", les prénoms des joueurs et le nombre de joueurs
+		jeu(array_medium,joueursarray,nbjoueurs); // On execute la fonction jeu avec en input : l'array de la difficulté "Moyen", les prénoms des joueurs et le nombre de joueurs
 	}
 	else if (difficulte == "Difficile"){ // Si la difficulté séléctionnée est "Difficile" :
-		jeu(array_hard,joueursarray,nbjoueurs) // On execute la fonction jeu avec en input : l'array de la difficulté "Difficile", les prénoms des joueurs et le nombre de joueurs
+		jeu(array_hard,joueursarray,nbjoueurs); // On execute la fonction jeu avec en input : l'array de la difficulté "Difficile", les prénoms des joueurs et le nombre de joueurs
 	}
 	else if (difficulte == "Très Facile"){ // Si la difficulté séléctionnée est "Très Facile" :
-		jeu(array_tres_facile,joueursarray,nbjoueurs) // On execute la fonction jeu avec en input : l'array de la difficulté "Très Facile", les prénoms des joueurs et le nombre de joueurs
+		jeu(array_tres_facile,joueursarray,nbjoueurs); // On execute la fonction jeu avec en input : l'array de la difficulté "Très Facile", les prénoms des joueurs et le nombre de joueurs
 	}
 	else if (difficulte == "Ferme"){ // Si la difficulté séléctionnée est "Enfant1" :
-		jeu(array_ferme,joueursarray,nbjoueurs) // On execute la fonction jeu avec en input : l'array de la difficulté "Enfant1", les prénoms des joueurs et le nombre de joueurs
+		jeu(array_ferme,joueursarray,nbjoueurs); // On execute la fonction jeu avec en input : l'array de la difficulté "Enfant1", les prénoms des joueurs et le nombre de joueurs
 	}
 	else if (difficulte == "Sauvage"){ // Si la difficulté séléctionnée est "Enfant2" :
-		jeu(array_sauvages,joueursarray,nbjoueurs) // On execute la fonction jeu avec en input : l'array de la difficulté "Enfant2", les prénoms des joueurs et le nombre de joueurs
+		jeu(array_sauvages,joueursarray,nbjoueurs); // On execute la fonction jeu avec en input : l'array de la difficulté "Enfant2", les prénoms des joueurs et le nombre de joueurs
 	}
 }
 
@@ -471,8 +471,8 @@ function reset() { // fonction exécutée lorsque l'on clique sur rejouer
     var elementgame = document.getElementById("game"); // on selectionne le plateau
     var elementgridtotrow = document.getElementById("grid"); // on selectionne les cartes du plateau
     elementgame.removeChild(elementgridtotrow); // on supprime toutes les cartes du plateau
-	document.getElementById("haswin").setAttribute("class", "hidden") // On cache maintenant la div "choix_nombre_de_joueurs" qui contient les images pour choisir le nombre de joueurs
-	document.getElementById("accueil").setAttribute("class", "show") // On affiche l'accueil
+	document.getElementById("haswin").setAttribute("class", "hidden"); // On cache maintenant la div "choix_nombre_de_joueurs" qui contient les images pour choisir le nombre de joueurs
+	document.getElementById("accueil").setAttribute("class", "show"); // On affiche l'accueil
 	confetti.stop(); // On arrète les confettis qui se sont lancé indéfiniment
 	confetti.start(1000); // On redémarre les confetti pour une durée de 1 seconde pour créer cet effet de gradation
 }
