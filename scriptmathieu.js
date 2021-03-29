@@ -473,6 +473,15 @@ function reset() { // fonction exécutée lorsque l'on clique sur rejouer
     elementgame.removeChild(elementgridtotrow); // on supprime toutes les cartes du plateau
 	document.getElementById("haswin").setAttribute("class", "hidden"); // On cache maintenant la div "choix_nombre_de_joueurs" qui contient les images pour choisir le nombre de joueurs
 	document.getElementById("accueil").setAttribute("class", "show"); // On affiche l'accueil
+	
+	document.getElementById("Joueur4Input").setAttribute("class", "show");         // On ré-affiche les input qui auraient pu être cachés
+	document.getElementById("score_j4").setAttribute("class", "show");            // On ré-affiche le score qui aurait pu être caché
+	document.getElementById("Joueur3Input").setAttribute("class", "show");        // On ré-affiche les input qui auraient pu être cachés
+	document.getElementById("score_j3").setAttribute("class", "show");             // On ré-affiche le score qui aurait pu être caché
+	document.getElementById("Joueur2Input").setAttribute("class", "show");        // On ré-affiche les input qui auraient pu être cachés
+	document.getElementById("titre_modulable").innerHTML = "Prénoms des joueurs :";   // On remet le titre "Prénoms des joueurs" comme défaut
+	document.getElementById("score_j2").setAttribute("class", "show");			// On ré-affiche le score qui aurait pu être caché
+
 	confetti.stop(); // On arrète les confettis qui se sont lancé indéfiniment
 	confetti.start(1000); // On redémarre les confetti pour une durée de 1 seconde pour créer cet effet de gradation
 }
